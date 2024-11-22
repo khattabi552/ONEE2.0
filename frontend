@@ -1,0 +1,22 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Login from './components/Login';
+import Dashboard from './components/Dashboard';
+import BillDetails from './components/BillDetails';
+import Payment from './components/Payment';
+import ConservationFeed from './components/ConservationFeed';
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/bills" element={<BillDetails />} />
+        <Route path="/payment" element={<Payment />} />
+        <Route path="/conservation" element={<ConservationFeed />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;

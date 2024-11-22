@@ -1,0 +1,25 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+require('dotenv').config();
+
+const app = express();
+app.use(bodyParser.json());
+app.use(cors());
+
+// Import routes
+const authRoutes = require('./routes/auth');
+const billRoutes = require('./routes/bills');
+const consumptionRoutes = require('./routes/consumption');
+const notificationRoutes = require('./routes/notifications');
+const conservationRoutes = require('./routes/conservation');
+
+// Use routes
+app.use('/auth', authRoutes);
+app.use('/bills', billRoutes);
+app.use('/consumption', consumptionRoutes);
+app.use('/notifications', notificationRoutes);
+app.use('/conservation', conservationRoutes);
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
